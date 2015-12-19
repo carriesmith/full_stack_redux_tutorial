@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -22,10 +22,6 @@
       "es2015"
     ]
   },
-  "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
-    "test:watch": "npm run test -- --watch"
-  },
   "homepage": "https://github.com/carriesmith/full_stack_redux_tutorial#readme",
   "devDependencies": {
     "babel-cli": "^6.3.17",
@@ -36,6 +32,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "immutable": "^3.7.6"
+    "immutable": "^3.7.6",
+    "redux": "^3.0.5"
   }
 }
