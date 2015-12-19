@@ -7,7 +7,10 @@ export default function reducer(state = INITIAL_STATE, action){
 		case 'NEXT':
 			return next(state);
 		case 'VOTE':
-			return vote(state, action.choice)
+			// The main reducer function only hands parts of the state 
+			// to lower-level reducer functions.
+			return state.update('vote',
+				voteState => vote(voteState, action.choice));
 	}
 	return state;
 }

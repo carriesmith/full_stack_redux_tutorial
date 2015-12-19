@@ -42,7 +42,7 @@ export function next(state){
 
 }
 
-export function vote(state, choice){
+export function vote(voteState, choice){
 
 	// This works, but is hideous! :)
 	// return state.merge({
@@ -54,8 +54,8 @@ export function vote(state, choice){
 	// 	})
 	// });
 
-	return state.updateIn(
-		['vote', 'tally', choice],
+	return voteState.updateIn(
+		['tally', choice],
 		0,
 		count => count + 1
 	);
