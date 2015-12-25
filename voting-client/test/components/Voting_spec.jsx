@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 const {renderIntoDocument, 
 	scryRenderedDOMComponentsWithTag,
-	Simulate} = React.addons.TestUtils;
+	Simulate} = å;
 
 describe('Voting', () => {
 
