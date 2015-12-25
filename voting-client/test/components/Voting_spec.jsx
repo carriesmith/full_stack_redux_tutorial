@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 const {renderIntoDocument, 
 	scryRenderedDOMComponentsWithTag,
-	Simulate} = å;
+	Simulate} = React.addons.TestUtils;
 
 describe('Voting', () => {
 
@@ -18,7 +18,7 @@ describe('Voting', () => {
 
 		expect(buttons.length).to.equal(2);
 		expect(buttons[0].textContent).to.equal('Trainspotting');
-		expect(buttons[1].textContent).to.equal('28 Days Later');;
+		expect(buttons[1].textContent).to.equal('28 Days Later');
 
 	});
 
