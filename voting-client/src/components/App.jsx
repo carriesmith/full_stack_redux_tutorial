@@ -1,15 +1,10 @@
 import React from 'react';
 import {List, Map} from 'immutable';
 
-const pair = List.of('Trainspotting', '28 Days Later');
-const tally = Map({'Trainspotting': 5, '28 Days Later': 4});
-
 // the purpose of the root route component is to render all the markup
 // that is common across all routes.
 export default React.createClass({
 	render: function(){
-		return React.cloneElement(this.props.children, 
-			{pair: pair,
-			tally: tally});
+		return this.props.children;
 	}
 });

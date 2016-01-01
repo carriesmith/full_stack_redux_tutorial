@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './components/App';
 import {VotingContainer} from './components/Voting';
-import Results from './components/Results'
+import {ResultsContainer} from './components/Results'
 
 const store = createStore(reducer);
 store.dispatch({
@@ -22,8 +22,8 @@ store.dispatch({
 // Router comes with the React component called Route
 // which can be used to declaratively define a routing table.
 const routes = <Route component={App}>
-					<Route path="/results" component={Results} />
-					<Route path="/" component={Voting} />
+					<Route path="/results" component={ResultsContainer} />
+					<Route path="/" component={VotingContainer} />
 				</Route>;
 
 ReactDOM.render(
