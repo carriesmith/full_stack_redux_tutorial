@@ -3,21 +3,13 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote';
+import * as actionCreators from '../action_creators';
 
 // pure ("dumb") component Voting
 // fully driven by the props it is given
 export const Voting = React.createClass({
 	mixins: [PureRenderMixin],
 	
-	// getPair: function(){
-	// 	return this.props.pair || [];
-	// },
-	// isDisabled: function(){
-	// 	return !!this.props.hasVoted;
-	// },
-	// hasVotedFor: function(entry){
-	// 	return this.props.hasVoted === entry;
-	// },
 	render: function(){
 		return <div className='voting'>
 			{this.props.winner ? 
@@ -29,7 +21,8 @@ export const Voting = React.createClass({
 
 function mapStateToProps(state){
 	return {
-		pair: state.getIn(['vote', pair]),
+		pair: state.getIn(['vote', 'pair']),
+		hasVoted: state.get('hasVoted'),
 		winner: state.get('winner')
 	}
 }
@@ -37,6 +30,8 @@ function mapStateToProps(state){
 // connected ("smart") component VotingContainer
 // wraps the pure version with some logic that will keep it in
 // sync with the changing state of the Redux Store.
-export const VotingContainer = connect(mapStateToProps)(Voting);
+export const VotingContainer = connect(
+	mapStateToProps,
+	actionCreators)(Voting);
 
 export default Voting;
