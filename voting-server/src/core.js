@@ -42,20 +42,10 @@ export function next(state){
 
 }
 
-export function vote(voteState, choice){
-
-	// This works, but is hideous! :)
-	// return state.merge({
-	// 	vote: state.get('vote').merge({
-	// 		tally: state.get('vote').get('tally', Map()).merge( Map(
-	// 				[[winner, state.get('vote').get('tally', Map()).get(winner, 0) + 1]]
-	// 			)
-	// 		)
-	// 	})
-	// });
+export function vote(voteState, entry){
 
 	return voteState.updateIn(
-		['tally', choice],
+		['tally', entry],
 		0,
 		count => count + 1
 	);
